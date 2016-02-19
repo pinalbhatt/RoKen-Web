@@ -5,16 +5,10 @@
 
 var app = angular.module('cubeWebApp', [
 	'ngRoute',
-	'angular-loading-bar',
-	'ngAnimate',
-	'easypiechart'
+	'ngAnimate'
 ]);
 
-app.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
-	cfpLoadingBarProvider.includeBar = true;
-	cfpLoadingBarProvider.includeSpinner = true;
-	cfpLoadingBarProvider.latencyThreshold = 100;
-}]);
+
 
 /**
  * Configure the Routes

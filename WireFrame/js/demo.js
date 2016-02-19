@@ -111,20 +111,7 @@ $(function($) {
 		
 		writeStorage(storage, 'config-boxed-layout', boxedLayout);
 	});
-	$('#config-rtl-layout').on('change', function(){
-		var rtlLayout = '';
-		
-		if ($(this).is(':checked')) {
-			//$('body').addClass('rtl');
-			rtlLayout = 'rtl';
-		}
-		else {
-			//$('body').removeClass('rtl');
-		}
-		
-		writeStorage(storage, 'config-rtl-layout', rtlLayout);
-		location.reload();
-	});
+
 	$('#config-fixed-sidebar').on('change', function(){
 		var fixedSidebar = '';
 		

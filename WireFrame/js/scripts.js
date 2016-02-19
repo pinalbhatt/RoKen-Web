@@ -95,19 +95,9 @@ $(function($) {
 		}
 	});
 	
-	$('.fixed-leftmenu #col-left').nanoScroller({
-    	alwaysVisible: false,
-    	iOSNativeScrolling: false,
-    	preventPageScrolling: true,
-    	contentClass: 'col-left-nano-content'
-    });
 	
-	// build all tooltips from data-attributes
-	$("[data-toggle='tooltip']").each(function (index, el) {
-		$(el).tooltip({
-			placement: $(this).data("placement") || 'top'
-		});
-	});
+	
+	
 });
 
 $.fn.removeClassPrefix = function(prefix) {
