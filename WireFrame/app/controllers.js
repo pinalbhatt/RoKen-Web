@@ -1,4 +1,4 @@
-/**
+4/**
  * Cube - Bootstrap Admin Theme
  * Copyright 2014 Phoonio
  */
@@ -81,31 +81,7 @@ function dashboardFlotCtrl($scope) {
 		label: 'Orders'
 	});
 
-	$.plot("#graph-bar", series, {
-		colors: ['#03a9f4', '#f1c40f', '#2ecc71', '#3498db', '#9b59b6', '#95a5a6'],
-		grid: {
-			tickColor: "#f2f2f2",
-			borderWidth: 0,
-			hoverable: true,
-			clickable: true
-		},
-		legend: {
-			noColumns: 1,
-			labelBoxBorderColor: "#000000",
-			position: "ne"       
-		},
-		shadowSize: 0,
-		xaxis: {
-			mode: "time",
-			tickSize: [1, "month"],
-			tickLength: 0,
-			// axisLabel: "Date",
-			axisLabelUseCanvas: true,
-			axisLabelFontSizePixels: 12,
-			axisLabelFontFamily: 'Open Sans, sans-serif',
-			axisLabelPadding: 10
-		}
-	});
+
 
 	var previousPoint = null;
 	$("#graph-bar").bind("plothover", function (event, pos, item) {
