@@ -1,0 +1,22 @@
+{
+  "name": "roken-web-app",
+  "version": "0.0.1",
+  "description": "Roken Web App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinalbhatt/RoKen-Web.git"
+  },
+  "author": "Pinal Bhatt <self@pbdesk.io> (http://pbdesk.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pinalbhatt/RoKen-Web/issues"
+  },
+  "homepage": "https://github.com/pinalbhatt/RoKen-Web#readme",
+  "dependencies": {
+    "angular-local-storage": "^0.2.2"
+  }
+}
