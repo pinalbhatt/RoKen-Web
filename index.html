@@ -2,24 +2,28 @@
 <html lang="en" ng-app="RokenApp.Main">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title ng-bind="title + ' | PBDesk - from the desk of Pinal Bhatt'">PBDesk - from the desk of Pinal Bhatt</title>
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/paper/bootstrap.min.css" rel="stylesheet" integrity="sha256-ZSKfhECi0yCEmGVAuQLWTHtJEn2vBNPexEWsJCIC/Nc= sha512-b+mSnD4QXw1uYwkgJ3d0XxoMXo+ZKHJNTNNFIddJ0IazcwKvKYtIlWADZ1JEREJzxUG428sfCw7qDuswAFcrOQ==" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/paper/bootstrap.min.css" rel="stylesheet"
+          integrity="sha256-ZSKfhECi0yCEmGVAuQLWTHtJEn2vBNPexEWsJCIC/Nc= sha512-b+mSnD4QXw1uYwkgJ3d0XxoMXo+ZKHJNTNNFIddJ0IazcwKvKYtIlWADZ1JEREJzxUG428sfCw7qDuswAFcrOQ=="
+          crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg=="
+          crossorigin="anonymous"/>
 
-    <link rel="stylesheet" type="text/css" href="/css/paper.css" />
-    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/css/paper.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
 
-    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+    <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon"/>
 
     <!--[if lt IE 9]>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body ng-controller="mainCtrl">
@@ -36,7 +40,8 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Roken <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Roken <span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="themes">
                         <li><a href="../default/">Default</a></li>
                         <li class="divider"></li>
@@ -60,7 +65,8 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">About <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">About <span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="download">
                         <li><a href="http://jsfiddle.net/bootswatch/ndax7sh7/">Open Sandbox</a></li>
                         <li class="divider"></li>
@@ -77,8 +83,10 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li ng-if="loginStatus === true"><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-                <li ng-if="loginStatus === false"><a href="#/login"  class="head-item" ><i class="fa fa-sign-in"></i> Sign-In</a></li>
+                <li ng-if="loginStatus === true"><a href="http://builtwithbootstrap.com/" target="_blank">Built With
+                    Bootstrap</a></li>
+                <li ng-if="loginStatus === false"><a href="#/login" class="head-item"><i class="fa fa-sign-in"></i>
+                    Sign-In</a></li>
             </ul>
 
         </div>
@@ -96,7 +104,9 @@
             </div>
             <div class="col-lg-4 col-md-5 col-sm-6">
                 <div class="sponsor">
-                    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootswatchcom" id="_carbonads_js"></script>
+                    <script async type="text/javascript"
+                            src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootswatchcom"
+                            id="_carbonads_js"></script>
                 </div>
             </div>
         </div>
@@ -105,24 +115,27 @@
     <div ng-view autoscroll="true" class="slide-main-animation"></div>
 
 
-
-
-
-
-
 </div>
 <footer class="blog-footer">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>Concept Design, Develop & Perceived by </p>
+    <p>PBDesk.com | from the desk of Pinal Bhatt</p>
     <p>
-        <a href="#">Back to top</a>
+        follow me at
     </p>
+    <div class="social"><a target="_blank" class="twitter" href="http://twitter.com/PBDesk"><i
+            class="fa fa-twitter"></i></a> <a target="_blank" class="facebook"
+                                              href="https://www.facebook.com/Go.PBDesk"><i
+            class="fa fa-facebook"></i></a> <a target="_blank" class="google-plus"
+                                               href="https://plus.google.com/+Pbdesk"><i class="fa fa-google-plus"></i></a>
+        <a target="_blank" class="linkedin" href="http://www.linkedin.com/in/pinalbhatt"><i class="fa fa-linkedin"></i></a>
+        <a target="_blank" class="pinterest" href="https://github.com/PBDesk"><i class="fa fa-github"></i></a></div>
 </footer>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A=="
+        crossorigin="anonymous"></script>
 
 
 <!-- angular libs -->

@@ -13,6 +13,50 @@ footer p:last-child {
     margin-bottom: 0;
 }
 
+/* Social CSS */
+
+.social a i{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    font-size:16px;
+    line-height:40px;
+    text-decoration:none;
+    text-align:center;
+    color:#fff;
+    -webkit-transition: all 1.5s ease;
+    -moz-transition: all 1.5s ease;
+    -ms-transition: all 1.5s ease;
+    -o-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+    border-radius: 50px;
+}
+
+.social a.facebook i{
+    background:#1e78ae;
+}
+
+.social a.twitter i{
+    background:#1ba1e2;
+}
+
+.social a.google-plus i{
+    background:#f22d0c;
+}
+
+.social a.linkedin i{
+    background:#2d93cf;
+}
+
+.social a.pinterest i{
+    background:#dd1617;
+}
+
+.social a:hover i{
+    background:#000;
+}
+
+
 .btn-social{
     text-shadow: 1px 1px 1px #000000;
     font-weight: bold;
