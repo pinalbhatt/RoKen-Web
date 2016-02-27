@@ -3,8 +3,21 @@
 
 	angular
 		.module('RokenApp.Main')
-		.config(routeConfigs);
+		.config(routeConfigs)
+		.run(routeChangeError);
 
+
+	routeChangeError.$inject = ['$rootScope', '$location'];
+
+	function routeChangeError($rootScope,$location){
+		$rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+			// We can catch the error thrown when the $requireAuth promise is rejected
+			// and redirect the user back to the home page
+			if (error === "AUTH_REQUIRED") {
+				$location.path("/login");
+			}
+		});
+	}
 
 	routeConfigs.$inject = ['$routeProvider'];
 
@@ -13,43 +26,84 @@
 
 		$routeProvider
 			.when("/", {
-				redirectTo:'/dasboard'
+				redirectTo:'/welcome'
 			})
-			.when("/dasboard", {
+			.when("/welcome", {
 				templateUrl: "/ng/dashboard/dashboard.html",
 				controller: "mainCtrl",
 				controllerAs: "self",
-				title: 'Dashboard'
+				title: 'Dashboard',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$waitForAuth();
+					}]
+				}
 			})
 			.when("/login", {
 				templateUrl: "/ng/login/login.html",
 				controller: "loginCtrl",
 				controllerAs: "self",
-				title: 'Login'
+				title: 'Login',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$waitForAuth();
+					}]
+				}
 			})
-			.when("/play/kenken", {
+			.when("/kenken", {
 				templateUrl: "/ng/dashboard/dashboard.html",
 				controller: "mainCtrl",
 				controllerAs: "self",
-				title: 'Dashboard'
+				title: 'Dashboard',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$waitForAuth();
+					}]
+				}
 			})
-			.when("/play/roken", {
+			.when("/roken", {
 				templateUrl: "/ng/dashboard/dashboard.html",
 				controller: "mainCtrl",
 				controllerAs: "self",
-				title: 'Dashboard'
+				title: 'Dashboard',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$requireAuth();
+					}]
+				}
+			})
+			.when("/dashboard", {
+				templateUrl: "/ng/dashboard/dashboard.html",
+				controller: "mainCtrl",
+				controllerAs: "self",
+				title: 'Dashboard',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$requireAuth();
+					}]
+				}
 			})
 			.when("/rules", {
 				templateUrl: "/ng/dashboard/dashboard.html",
 				controller: "mainCtrl",
 				controllerAs: "self",
-				title: 'Dashboard'
+				title: 'Dashboard',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$waitForAuth();
+					}]
+				}
 			})
 			.when("/about", {
 				templateUrl: "/ng/dashboard/dashboard.html",
 				controller: "mainCtrl",
 				controllerAs: "self",
-				title: 'Dashboard'
+				title: 'Dashboard',
+				resolve: {
+					"currentAuth": ["Auth", function(Auth) {
+						return Auth.$waitForAuth();
+					}]
+				}
 			})
 
 			.otherwise({

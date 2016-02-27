@@ -3,7 +3,6 @@
 
 	angular.module('RokenApp.Main', [
 		'RokenApp.Core'
-
 	]);
 })();
 

@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('loginCtrl', loginCtrl);
 
-	loginCtrl.$inject = ['$location'];
+	loginCtrl.$inject = ['$location', 'currentAuth'];
 
-	function loginCtrl($location) {
+	function loginCtrl($location, currentAuth) {
 
 		var self = this;
 		self.title = 'Login';
