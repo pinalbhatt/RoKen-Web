@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/pinalbhatt/RoKen-Web#readme",
   "dependencies": {
-    "angular-local-storage": "^0.2.2"
+    "angular-local-storage": "^0.2.6"
   }
 }
