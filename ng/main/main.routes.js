@@ -29,10 +29,10 @@
 				redirectTo:'/welcome'
 			})
 			.when("/welcome", {
-				templateUrl: "/ng/dashboard/dashboard.html",
-				controller: "mainCtrl",
+				templateUrl: "/ng/welcome/welcome.html",
+				controller: "welcomeCtrl",
 				controllerAs: "self",
-				title: 'Dashboard',
+				title: 'welcome',
 				resolve: {
 					"currentAuth": ["Auth", function(Auth) {
 						return Auth.$waitForAuth();
@@ -52,7 +52,7 @@
 			})
 			.when("/kenken", {
 				templateUrl: "/ng/dashboard/dashboard.html",
-				controller: "mainCtrl",
+				controller: "dashboardCtrl",
 				controllerAs: "self",
 				title: 'Dashboard',
 				resolve: {
@@ -63,7 +63,7 @@
 			})
 			.when("/roken", {
 				templateUrl: "/ng/dashboard/dashboard.html",
-				controller: "mainCtrl",
+				controller: "dashboardCtrl",
 				controllerAs: "self",
 				title: 'Dashboard',
 				resolve: {
@@ -74,7 +74,7 @@
 			})
 			.when("/dashboard", {
 				templateUrl: "/ng/dashboard/dashboard.html",
-				controller: "mainCtrl",
+				controller: "dashboardCtrl",
 				controllerAs: "self",
 				title: 'Dashboard',
 				resolve: {
@@ -85,7 +85,7 @@
 			})
 			.when("/rules", {
 				templateUrl: "/ng/dashboard/dashboard.html",
-				controller: "mainCtrl",
+				controller: "dashboardCtrl",
 				controllerAs: "self",
 				title: 'Dashboard',
 				resolve: {
@@ -96,7 +96,7 @@
 			})
 			.when("/about", {
 				templateUrl: "/ng/dashboard/dashboard.html",
-				controller: "mainCtrl",
+				controller: "dashboardCtrl",
 				controllerAs: "self",
 				title: 'Dashboard',
 				resolve: {

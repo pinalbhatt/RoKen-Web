@@ -1,3 +1,60 @@
 .head-item {
     font-size: 1.3em;
 }
+
+footer {
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+.btn-social{
+    text-shadow: 1px 1px 1px #000000;
+    font-weight: bold;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+.btn-facebook{
+    background-color: #1e78ae !important;
+    color: #ffffff !important;
+
+}
+.btn-facebook:hover{
+    background-color: #000000 !important;
+    text-shadow: 1px 1px 1px #1e78ae;
+}
+
+.btn-twitter{
+    background-color: #1ba1e2 !important;
+    color: #ffffff !important;
+
+}
+.btn-twitter:hover{
+    background-color: #000000 !important;
+    text-shadow: 1px 1px 1px #1ba1e2;
+}
+
+.btn-google{
+    background-color: #f22d0c !important;
+    color: #ffffff !important;
+
+}
+.btn-google:hover{
+    background-color: #000000 !important;
+    text-shadow: 1px 1px 1px #f22d0c;
+}
+
+.btn-github{
+    background-color: #dd1617 !important;
+    color: #ffffff !important;
+
+}
+.btn-github:hover{
+    background-color: #000000 !important;
+    text-shadow: 1px 1px 1px #dd1617;
+}

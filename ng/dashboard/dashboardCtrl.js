@@ -3,11 +3,11 @@
 
 	angular
 		.module('RokenApp.Main')
-		.controller('mainCtrl', mainCtrl);
+		.controller('dashboardCtrl', dashboardCtrl);
 
-	mainCtrl.$inject = ['$location'];
+	dashboardCtrl.$inject = ['$location'];
 
-	function mainCtrl($location) {
+	function dashboardCtrl($location) {
 
 		var self = this;
 		self.title = 'dashboard';
