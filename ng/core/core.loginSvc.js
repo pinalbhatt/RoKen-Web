@@ -9,9 +9,9 @@
 
 	function loginSvc($q, Auth, dataSvc) {
 
-		Auth.$onAuth(function(authData) {
+		/*Auth.$onAuth(function(authData) {
 			console.log(authData);
-			/*if (authData === null) {
+			if (authData === null) {
 				console.log('Not logged in yet');
 			} else {
 				var uData = getUserData(authData);
@@ -19,9 +19,9 @@
 					fbRef.child("users").child(uData.id).set(uData);
 				}
 				console.log('Logged in as', authData.uid);
-			}*/
+			}
 
-		});
+		});*/
 
 
 		var service = {
@@ -33,7 +33,7 @@
 
 
 		function logout(){
-			Auth.unauth();
+			Auth.$unauth();
 		}
 
 		function socialLogin(providerName, permissions) {
@@ -42,6 +42,15 @@
 				scope: permissions
 			};
 			Auth
+				.$authWithOAuthPopup(providerName, providerPermissions)
+				.then(function (authData) {
+					deferred.resolve(authData);
+				})
+				.catch(function(error2){
+					deferred.reject(error2);
+				});
+
+			/*Auth
 				.$authWithOAuthRedirect(providerName, providerPermissions)
 				.then(function (authData) {
 					deferred.resolve(authData);
@@ -60,7 +69,7 @@
 					else {
 						deferred.reject(error);
 					}
-				});
+				});*/
 			return deferred.promise;
 		}
 	}

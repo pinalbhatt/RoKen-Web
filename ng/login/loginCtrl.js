@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('loginCtrl', loginCtrl);
 
-	loginCtrl.$inject = ['$location', 'currentAuth', 'loginSvc'];
+	loginCtrl.$inject = ['$scope','$location', 'currentAuth', 'loginSvc'];
 
-	function loginCtrl($location, currentAuth, loginSvc) {
+	function loginCtrl($scope, $location, currentAuth, loginSvc) {
 
 		var self = this;
 		self.title = 'Login';
@@ -19,7 +19,10 @@
 		function init() { }
 
 		self.doSocialLogin = function(provider, permissions){
+			$scope.$parent.doSocialLogin(provider, permissions);
 			//self.$parent.doSocialLogin(provider, permissions)
+			//alert($scope.main.title);
+			/*alert($scope.$parent.title);
 			loginSvc
 				.socialLogin(provider, permissions)
 				.then(function(authData){
@@ -27,7 +30,7 @@
 				})
 				.catch(function(error) {
 					console.log(error);
-				});
+				});*/
 		};
 
 

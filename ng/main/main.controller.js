@@ -26,6 +26,10 @@
 			}
 		});
 
+		$scope.doLogout = function() {
+			loginSvc.logout();
+
+		}
 		$scope.doSocialLogin = function(provider, permissions){
 			loginSvc
 				.socialLogin(provider, permissions)
