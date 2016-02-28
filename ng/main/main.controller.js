@@ -19,12 +19,7 @@
 			if(authData){
 				$rootScope.loginStatus = true;
 				$scope.loginStatus = true;
-				var profileObj = {
-					uid: authData.uid,
-					provider: authData.provider,
-					displayName: authData[authData.provider].displayName
-
-				}
+				var profileObj = getProfileFromSocialData(authData);
 				dataSvc.profile.set(authData.uid, profileObj)
 					.then(function(success){
 						console.log(success);
@@ -56,5 +51,22 @@
 		init();
 
 		function init() { }
+
+		function getProfileFromSocialData(authData){
+			var profileObj =  null;
+			if(authData && authData.uid){
+				profileObj = {
+					uid: authData.uid,
+					provider: authData.provider,
+
+				};
+				var providerData = authData[authData.provider];
+				profileObj.displayName =  providerData.displayName;
+				profileObj.email = providerData.email || "";
+				profileObj.avatar = providerData.profileImageURL || "";
+
+			}
+			return profileObj;
+		}
 	}
 })();

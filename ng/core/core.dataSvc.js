@@ -22,7 +22,7 @@
 
 		function getProfile(uid){
 			var deferred = $q.defer();
-			var ref = fbRef.child("users").child(uid);
+			var ref = fbRef.child("users").child(uid).child("profile");
 			$firebaseObject(ref)
 				.$loaded()
 				.then(function(data) {
@@ -47,7 +47,7 @@
 					console.log(data);
 				})
 				.catch(function(error) {
-					var ref = fbRef.child("users").child(uid);
+					var ref = fbRef.child("users").child(uid).child("profile");
 					var obj = $firebaseObject(ref);
 					obj.$value = profileObj;
 
