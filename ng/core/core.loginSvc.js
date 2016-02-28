@@ -50,26 +50,6 @@
 					deferred.reject(error2);
 				});
 
-			/*Auth
-				.$authWithOAuthRedirect(providerName, providerPermissions)
-				.then(function (authData) {
-					deferred.resolve(authData);
-				})
-				.catch(function (error) {
-					if (error.code === 'TRANSPORT_UNAVAILABLE') {
-						Auth
-							.$authWithOAuthPopup(providerName, providerPermissions)
-							.then(function (authData) {
-								deferred.resolve(authData);
-							})
-							.catch(function(error2){
-								deferred.reject(error2);
-							})
-					}
-					else {
-						deferred.reject(error);
-					}
-				});*/
 			return deferred.promise;
 		}
 	}

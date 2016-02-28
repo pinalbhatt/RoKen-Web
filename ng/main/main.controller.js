@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('mainCtrl', mainCtrl);
 
-	mainCtrl.$inject = ['$scope', '$rootScope', "Auth", "loginSvc"];
+	mainCtrl.$inject = ['$scope', '$rootScope', "Auth", "loginSvc", "dataSvc"];
 
-	function mainCtrl($scope, $rootScope, Auth, loginSvc) {
+	function mainCtrl($scope, $rootScope, Auth, loginSvc, dataSvc) {
 		$scope.title = 'controller2';
 
 		$scope.auth = Auth;
@@ -19,6 +19,19 @@
 			if(authData){
 				$rootScope.loginStatus = true;
 				$scope.loginStatus = true;
+				var profileObj = {
+					uid: authData.uid,
+					provider: authData.provider,
+					displayName: authData[authData.provider].displayName
+
+				}
+				dataSvc.profile.set(authData.uid, profileObj)
+					.then(function(success){
+						console.log(success);
+					})
+					.catch(function(error){
+						console.log(error);
+					});
 			}
 			else {
 				$rootScope.loginStatus = false;
