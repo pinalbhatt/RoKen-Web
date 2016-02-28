@@ -1,69 +1,74 @@
-<div class="row">
-    <div class="col-lg-6">
-        <form class="form-horizontal">
-            <fieldset>
-                <legend>Sign-In</legend>
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+<div>
+    <ng-include src="'/ng/partials/header.html'"></ng-include>
+    <div class="row">
+        <div class="col-lg-6">
+            <div>
+                <h3>Sign-in using your social id:</h3>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 well">
+                        <button type="submit" class="btn btn-social btn-facebook col-xs-12"
+                                ng-click="self.doSocialLogin('facebook', 'public_profile')">
+                            <i class="fa fa-facebook"></i> | facebook
+                        </button>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember me
-                            </label>
-                            <a href="forgot-password.html" id="login-forget-link" class="pull-right">
-                                Forgot password?
-                            </a>
-                        </div>
+                    <div class="col-xs-12 col-sm-6 well">
+                        <button type="submit" class="btn btn-social col-xs-12 btn-twitter"
+                                ng-click="self.doSocialLogin('twitter', '')">
+                            <i class="fa fa-twitter"></i> | twitter
+                        </button>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button type="reset" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="col-xs-12 col-sm-6 well">
+                        <button type="submit" class="btn btn-social col-xs-12 btn-google"
+                                ng-click="self.doSocialLogin('google', 'profile')">
+                            <i class="fa fa-google"></i> | google
+                        </button>
                     </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-    <div class="col-lg-6">
-        <div>
-            Or sign-in using your social id
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social btn-facebook col-xs-12"
-                            ng-click="self.doSocialLogin('facebook', 'public_profile')">
-                        <i class="fa fa-facebook"></i> | facebook
-                    </button>
-                </div>
-                <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social col-xs-12 btn-twitter"
-                            ng-click="self.doSocialLogin('twitter', '')">
-                        <i class="fa fa-twitter"></i> | twitter
-                    </button>
-                </div>
-                <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social col-xs-12 btn-google"
-                            ng-click="self.doSocialLogin('google', 'profile')">
-                        <i class="fa fa-google"></i> | google
-                    </button>
-                </div>
-                <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social col-xs-12 btn-github"
-                            ng-click="self.doSocialLogin('github', '')">
-                        <i class="fa fa-github"></i> | github
-                    </button>
+                    <div class="col-xs-12 col-sm-6 well">
+                        <button type="submit" class="btn btn-social col-xs-12 btn-github"
+                                ng-click="self.doSocialLogin('github', '')">
+                            <i class="fa fa-github"></i> | github
+                        </button>
+                    </div>
                 </div>
             </div>
+
+        </div>
+        <div class="col-lg-6">
+           <!-- <form class="form-horizontal">
+                <fieldset>
+                    <legend>Sign-In</legend>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                                <a href="forgot-password.html" id="login-forget-link" class="pull-right">
+                                    Forgot password?
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="reset" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>-->
         </div>
 
     </div>
 </div>
+
 
