@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('loginCtrl', loginCtrl);
 
-	loginCtrl.$inject = ['$location', 'currentAuth'];
+	loginCtrl.$inject = ['$location', 'currentAuth', 'loginSvc'];
 
-	function loginCtrl($location, currentAuth) {
+	function loginCtrl($location, currentAuth, loginSvc) {
 
 		var self = this;
 		self.title = 'Login';
@@ -18,57 +18,18 @@
 
 		function init() { }
 
-		self.googleClick = function(){
-			ref.authWithOAuthPopup("google", function(error, authData) {
-				if (error) {
-					console.log("Login Failed!", error);
-				} else {
-					console.log("Authenticated successfully with payload:", authData);
-				}
-			}, {
-				remember: "sessionOnly",
-				scope: "profile"
-			});
-		}
+		self.doSocialLogin = function(provider, permissions){
+			//self.$parent.doSocialLogin(provider, permissions)
+			loginSvc
+				.socialLogin(provider, permissions)
+				.then(function(authData){
+					console.log(authData);
+				})
+				.catch(function(error) {
+					console.log(error);
+				});
+		};
 
-		self.twitterClick = function(){
-			ref.authWithOAuthPopup("twitter", function(error, authData) {
-				if (error) {
-					console.log("Login Failed!", error);
-				} else {
-					console.log("Authenticated successfully with payload:", authData);
-				}
-			}, {
-				remember: "sessionOnly"
-			});
-		}
 
-		self.facebookClick = function(){
-			ref.authWithOAuthPopup("facebook", function(error, authData) {
-				if (error) {
-					console.log("Login Failed!", error);
-				} else {
-					console.log("Authenticated successfully with payload:", authData);
-				}
-			}, {
-				remember: "sessionOnly",
-				scope: "email,public_profile"
-			});
-		}
-
-		self.githubClick = function(){
-
-			ref.authWithOAuthPopup("github", function(error, authData) {
-				if (error) {
-					console.log("Login Failed!", error);
-				} else {
-					console.log("Authenticated successfully with payload:", authData);
-				}
-
-			}, {
-				remember: "sessionOnly",
-				scope: ""
-			});
-		}
 	}
 })();

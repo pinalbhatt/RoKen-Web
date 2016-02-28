@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('mainCtrl', mainCtrl);
 
-	mainCtrl.$inject = ['$scope', '$rootScope', "Auth"];
+	mainCtrl.$inject = ['$scope', '$rootScope', "Auth", "loginSvc"];
 
-	function mainCtrl($scope, $rootScope, Auth) {
+	function mainCtrl($scope, $rootScope, Auth, loginSvc) {
 		$scope.title = 'controller2';
 
 		$scope.auth = Auth;
@@ -26,6 +26,16 @@
 			}
 		});
 
+		$scope.doSocialLogin = function(provider, permissions){
+			loginSvc
+				.socialLogin(provider, permissions)
+				.then(function(authData){
+					console.log(authData);
+				})
+				.catch(function(error) {
+					console.log(error);
+				});
+		};
 		init();
 
 		function init() { }

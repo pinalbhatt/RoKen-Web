@@ -38,22 +38,26 @@
             Or sign-in using your social id
             <div class="row">
                 <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social btn-facebook col-xs-12">
+                    <button type="submit" class="btn btn-social btn-facebook col-xs-12"
+                            ng-click="self.doSocialLogin('facebook', 'public_profile')">
                         <i class="fa fa-facebook"></i> | facebook
                     </button>
                 </div>
                 <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social col-xs-12 btn-twitter">
+                    <button type="submit" class="btn btn-social col-xs-12 btn-twitter"
+                            ng-click="self.doSocialLogin('twitter', '')">
                         <i class="fa fa-twitter"></i> | twitter
                     </button>
                 </div>
                 <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social col-xs-12 btn-google">
+                    <button type="submit" class="btn btn-social col-xs-12 btn-google"
+                            ng-click="self.doSocialLogin('google', 'profile')">
                         <i class="fa fa-google"></i> | google
                     </button>
                 </div>
                 <div class="col-xs-12 col-sm-6 well">
-                    <button type="submit" class="btn btn-social col-xs-12 btn-github">
+                    <button type="submit" class="btn btn-social col-xs-12 btn-github"
+                            ng-click="self.doSocialLogin('github', '')">
                         <i class="fa fa-github"></i> | github
                     </button>
                 </div>

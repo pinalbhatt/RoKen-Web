@@ -10,6 +10,7 @@
 	function loginSvc($q, Auth, dataSvc) {
 
 		Auth.$onAuth(function(authData) {
+			console.log(authData);
 			/*if (authData === null) {
 				console.log('Not logged in yet');
 			} else {
