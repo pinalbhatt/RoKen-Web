@@ -102,3 +102,7 @@ footer p:last-child {
     background-color: #000000 !important;
     text-shadow: 1px 1px 1px #dd1617;
 }
+
+.page-header{
+    margin: 70px 0 23px;
+}

@@ -20,17 +20,6 @@
 
 		self.doSocialLogin = function(provider, permissions){
 			$scope.$parent.doSocialLogin(provider, permissions);
-			//self.$parent.doSocialLogin(provider, permissions)
-			//alert($scope.main.title);
-			/*alert($scope.$parent.title);
-			loginSvc
-				.socialLogin(provider, permissions)
-				.then(function(authData){
-					console.log(authData);
-				})
-				.catch(function(error) {
-					console.log(error);
-				});*/
 		};
 
 

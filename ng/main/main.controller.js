@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('mainCtrl', mainCtrl);
 
-	mainCtrl.$inject = ['$scope', '$rootScope', "Auth", "loginSvc", "dataSvc"];
+	mainCtrl.$inject = ['$scope', '$rootScope', "Auth", "loginSvc", "dataSvc", "$location"];
 
-	function mainCtrl($scope, $rootScope, Auth, loginSvc, dataSvc) {
+	function mainCtrl($scope, $rootScope, Auth, loginSvc, dataSvc, $location) {
 		$scope.title = 'controller2';
 
 		$scope.auth = Auth;
@@ -22,15 +22,21 @@
 				var profileObj = getProfileFromSocialData(authData);
 				dataSvc.profile.set(authData.uid, profileObj)
 					.then(function(success){
-						console.log(success);
+						$rootScope.user = success;
+						$scope.user = success;
+						$scope.user.displayTag = "<i class='fa fa-" + success.provider + "'></i> | " + success.displayName + " &nbsp; <span class='caret'></span>";
 					})
 					.catch(function(error){
 						console.log(error);
+						$rootScope.user = null;
+						$scope.user = null;
 					});
 			}
 			else {
 				$rootScope.loginStatus = false;
 				$scope.loginStatus = false;
+				$rootScope.user = null;
+				$scope.user = null;
 			}
 		});
 
@@ -42,7 +48,7 @@
 			loginSvc
 				.socialLogin(provider, permissions)
 				.then(function(authData){
-					console.log(authData);
+					$location.path("/dashboard")
 				})
 				.catch(function(error) {
 					console.log(error);

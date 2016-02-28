@@ -8,7 +8,7 @@
 
 	angular
 		.module('RokenApp.Core', [
-			'ngRoute', 'ngAnimate', 'ngCookies',  //Angular modules
+			'ngRoute', 'ngAnimate', 'ngCookies', 'ngSanitize', //Angular modules
 			'blocks.exception', 'blocks.logger', 'blocks.APIService', // Our reusable Angular modules
 			'firebase', 'LocalStorageModule' // 3rd Party modules
 		])

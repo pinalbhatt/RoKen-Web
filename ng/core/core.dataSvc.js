@@ -30,12 +30,12 @@
 						deferred.resolve(data);
 					}
 					else {
-						deferred.reject(data);
+						deferred.reject({message: "profile not found", error:{}});
 					}
 
 				})
 				.catch(function(error) {
-					deferred.reject(error);
+					deferred.reject({message: "error getting profile", error: error});
 				});
 
 			return deferred.promise;
@@ -44,25 +44,57 @@
 			var deferred = $q.defer();
 			getProfile(uid)
 				.then(function(data) {
-					console.log(data);
+					if(_hasProfileChanged(data, profileObj) === true){
+						_insOrUpdProfile(profileObj)
+							.then(function(success){
+								deferred.resolve(data);
+							})
+							.catch(function(error){
+								deferred.reject(error);
+							});
+					}
+					else {
+						deferred.resolve(data);
+					}
+
 				})
 				.catch(function(error) {
-					var ref = fbRef.child("users").child(uid).child("profile");
-					var obj = $firebaseObject(ref);
-					obj.$value = profileObj;
-
-					obj
-						.$save()
-						.then(function(saveSuccess) {
-							deferred.resolve(saveSuccess);
-					}, function(error) {
+					_insOrUpdProfile(profileObj)
+						.then(function(success){
+							deferred.resolve(profileObj);
+						})
+						.catch(function(error){
 							deferred.reject(error);
-					});
-
-
+						});
 
 				});
 			return deferred.promise;
+		}
+
+		function _insOrUpdProfile(profileObj){
+			var deferred = $q.defer();
+			var ref = fbRef.child("users").child(profileObj.uid).child("profile");
+			var obj = $firebaseObject(ref);
+			obj.$value = profileObj;
+
+			obj
+				.$save()
+				.then(function(saveSuccess) {
+					deferred.resolve(saveSuccess);
+				}, function(error) {
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		}
+
+		function _hasProfileChanged(dbProfile, newProfile){
+			if(dbProfile.avatar !== newProfile.avatar || dbProfile.displayName !== newProfile.displayName) {
+				return true;
+			}
+			else {
+				return false;
+			}
+
 		}
 	}
 })();
