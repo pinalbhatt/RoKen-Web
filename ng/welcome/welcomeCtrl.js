@@ -5,9 +5,9 @@
 		.module('RokenApp.Main')
 		.controller('welcomeCtrl', welcomeCtrl);
 
-	welcomeCtrl.$inject = ['$location'];
+	welcomeCtrl.$inject = ['$location', 'currentAuth'];
 
-	function welcomeCtrl($location) {
+	function welcomeCtrl($location, currentAuth) {
 
 		var self = this;
 		self.title = 'dashboard';

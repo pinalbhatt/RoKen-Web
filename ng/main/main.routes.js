@@ -4,7 +4,8 @@
 	angular
 		.module('RokenApp.Main')
 		.config(routeConfigs)
-		.run(routeChangeError);
+		.run(routeChangeError)
+		.run(authWatcher);
 
 
 	routeChangeError.$inject = ['$rootScope', '$location'];
@@ -20,7 +21,6 @@
 	}
 
 	routeConfigs.$inject = ['$routeProvider'];
-
 
 	function routeConfigs($routeProvider) {
 
@@ -110,5 +110,16 @@
 				redirectTo:'/'
 			});
 
+	}
+
+	authWatcher.$inject = ['$rootScope', 'Auth', '$location'];
+
+	function  authWatcher($rootScope, Auth, $location){
+		Auth.$onAuth(function(authData) {
+			console.log("onAuth of authWatcher called");
+		});
+		$rootScope.$watch('loginStatus', function(){
+			console.log("loginStatus changed");
+		});
 	}
 })();

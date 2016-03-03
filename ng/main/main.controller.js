@@ -5,15 +5,15 @@
 		.module('RokenApp.Main')
 		.controller('mainCtrl', mainCtrl);
 
-	mainCtrl.$inject = ['$scope', '$rootScope', "Auth", "loginSvc", "dataSvc", "$location"];
+	mainCtrl.$inject = ['$scope', '$rootScope', "Auth",  "dataSvc", "$location"];
 
-	function mainCtrl($scope, $rootScope, Auth, loginSvc, dataSvc, $location) {
+	function mainCtrl($scope, $rootScope, Auth, dataSvc, $location) {
 		$scope.title = 'controller2';
 
-		$scope.auth = Auth;
+
 
 		// any time auth status updates, add the user data to scope
-		$scope.auth.$onAuth(function(authData) {
+		Auth.$onAuth(function(authData) {
 			$scope.authData = authData;
 			$rootScope.authData = authData;
 			if(authData){
@@ -25,6 +25,7 @@
 						$rootScope.user = success;
 						$scope.user = success;
 						$scope.user.displayTag = "<i class='fa fa-" + success.provider + "'></i> | " + success.displayName + " &nbsp; <span class='caret'></span>";
+						$location.path("/dashboard");
 					})
 					.catch(function(error){
 						console.log(error);
@@ -41,18 +42,13 @@
 		});
 
 		$scope.doLogout = function() {
-			loginSvc.logout();
+			logout();
+			$location.path("/welcome");
 
 		}
 		$scope.doSocialLogin = function(provider, permissions){
-			loginSvc
-				.socialLogin(provider, permissions)
-				.then(function(authData){
-					$location.path("/dashboard")
-				})
-				.catch(function(error) {
-					console.log(error);
-				});
+			socialLogin(provider, permissions);
+
 		};
 		init();
 
@@ -73,6 +69,42 @@
 
 			}
 			return profileObj;
+		}
+
+		function socialLogin(providerName, permissions) {
+
+			var providerPermissions = {
+				scope: permissions
+			};
+			Auth
+				.$authWithOAuthRedirect(providerName, providerPermissions)
+				.then(function (authData) {
+
+				})
+				.catch(function (error) {
+					if (error.code === 'TRANSPORT_UNAVAILABLE') {
+						Auth
+							.$authWithOAuthPopup(providerName, providerPermissions)
+							.then(function (authData) {
+
+							})
+							.catch(function (error) {
+								console.error("Authentication failed with popup:", error);
+
+							});
+					}
+					else {
+						console.error("Authentication failed with redirect:", error);
+
+					}
+				});
+
+
+
+
+		}
+		function logout() {
+			Auth.$unauth();
 		}
 	}
 })();
